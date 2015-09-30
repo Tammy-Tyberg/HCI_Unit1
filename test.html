@@ -1,0 +1,363 @@
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="test (4).css">
+<script src="/Users/Tammytee/Documents/test.js"></script>
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+
+<title>Essay Doc</title>
+
+
+</head>
+
+	<body>
+
+	
+	     <button onclick="getLocation()" >Find my location</button>
+		 <p id="demo"></p>
+			
+		 <button onclick="addmap()" >Add map</button>
+	     <p id= "demo2"></p>
+		<div id="mapholder"></div>
+	 
+	 
+		 <form action="">
+		 
+			  <input type="radio" name="color" value="radio"  onchange= "bgcolor('colorR')"> Red
+			  <input type="radio" name="color"  value="radio" onchange= "bgcolor('colorG')"> Green
+			  <input type="radio" name="color"  value="radio" onchange= "bgcolor('colorP')"> Purple
+			  <input type="radio" name="color"  value="radio" onchange= "bgcolor('colorD')"> Default
+			  
+		</form>
+	
+		<div id="header">
+				
+				<h1> The Essay Doc</h1>
+		</div>
+
+		<h2>Let's get started on that essay!</h2>
+
+		<form>
+
+							<div id="fname">
+								First Name:
+								<input type="text" name="firstname">
+							</div>
+							<br>
+
+							<div id="lname">
+								Last Name:
+								<input type="text" name="lastname">
+							</div>
+							<br>
+
+							<div id="emailad">
+								Email:
+								<input type="email" name="email">
+							</div>
+							 <br>
+
+							<div id="add">
+								Address:
+								 <input type="text" name="address">
+							</div>
+							<br>
+
+							<div id="year">
+									Year:
+									 <input type="text" name="year">
+							</div>
+							<br>
+
+							<div id="hobbies">
+									Hobbies:
+									<input type="text" name="hobbies">
+							</div>
+							<br>
+							<br>
+
+							<div id="submitBut">
+								 <input type="submit" value="Submit">
+							</div>
+
+		</form>
+  
+		
+
+		<div id="footer">
+
+			<button onclick="changefooter()">Yellow Footer</button>
+
+		</div>
+
+
+		<div id= "text">
+
+			<textarea id= "mytextarea" rows="6" cols="80">
+					
+					Please give a brief summary about yourself:
+			</textarea>
+
+		   <button onclick="countwords()">Submit</button>
+			<button type="button" onclick="bigfont()">Enlarge Font</button>
+			<button type="button" onclick="smallfont()">Small Font</button>
+					
+		</div>
+
+		<p id="message"></p>
+
+		<div id="dropdown">
+					
+				<h7> Select level of degree you plan on pursuing:</h7>
+					
+					<select>
+					
+						  <option value="ass">Associates</option>
+						  <option value="ba">Bachelor of Science</option>
+						  <option value="bs">Bachelor of Arts</option>
+						  <option value="mas">Masters</option>
+						  
+					</select>
+		</div>
+
+		<div id="multidropdown">
+		
+			<h10> Please select your two preferred starting semesters:</h10>
+			<p>Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
+					
+			
+					<select multiple>
+					
+							  <option value="spr16">Spring '16</option>
+							  <option value="fall16">Fall '16</option>
+							  <option value="spr17">Spring '17</option>
+							  <option value="fall17">Fall '17</option>
+                     </select>
+									
+			</form>
+
+		</div>
+
+		<form>
+
+				<div id="favschool">
+						
+						Which university is your top priority?
+						<input id="school" type="text" name="university">
+						
+						<button onclick="uppercase()">All Caps</button>
+							
+				</div>
+				<br>
+							
+				
+					
+		</form>
+
+
+
+
+		<div id= "createAccount">
+
+				<h3> "Create an account!" </h3>
+					  
+					   <form>
+							
+							<div align=center id= "passwords">
+								
+								<label for="pass1">Password:</label>
+								<input type="password" name="pass1" id="pass1">
+								<br>
+		
+								<label for="pass2">Confirm Password:</label>
+								<input type="password" name="pass2" id="pass2" onkeyup="checkPass(); return false;">
+								<span id="confirmMessage" class="confirmMessage"></span>
+								
+							</div>
+						</form>
+		</div>
+
+</body>
+
+<script>
+function checkPass()
+{
+    //Store the password field objects into variables ...
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(pass1.value == pass2.value){
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!"
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!"
+    }
+}  
+
+</script>
+
+
+<script>
+  function bgcolor(col){
+    switch(col){
+      case 'colorR':
+        document.body.style.backgroundColor  = "red";
+        break;
+      case 'colorG':
+        document.body.style.backgroundColor  = "green";
+        break;
+      case 'colorP' :
+        document.body.style.backgroundColor  = "purple";
+        break;
+      case 'colorD':
+        document.body.style.backgroundColor  = "#d0e4fe";
+        break;
+    }
+ };
+
+</script>
+<script>
+$('input:radio').click(function() {
+  var color = $(this).val();
+  $('body').css("background-color", color);
+
+});
+</script>
+
+
+<script>
+function uppercase(){
+
+document.getElementById("school").value = document.getElementById("school").value.toUpperCase();
+
+}
+</script>
+
+<script>
+function countwords(){
+
+var area = document.getElementById("mytextarea");
+var message = document.getElementById("message");
+
+message.innerHTML = "You have typed  " + area.value.length + "  characters.";
+
+}
+</script>
+
+<script>
+
+function changefooter(){
+
+ document.getElementById("footer").style.backgroundColor = "yellow";
+
+}
+</script>
+
+<script>
+function bigfont(){
+
+document.getElementById("mytextarea").style.fontSize = "large";
+
+}
+
+</script>
+
+<script>
+function smallfont(){
+
+document.getElementById("mytextarea").style.fontSize = "small";
+
+}
+
+</script>
+
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+    
+    if(position.coords.latitude > 0 && position.coords.latitude < 45){
+    
+    		x.innerHTML = "You are applying to schools in the Northern Hemisphere." +
+    		" Exchange students please note seasons are reverse in opposite hemisphere!<br>"+
+    		 "Latitude: " + position.coords.latitude + 
+   			 "<br>Longitude: " + position.coords.longitude; 
+    	}else{
+    		
+    		x.innerHTML = "You are applying to schools in the Southern Hemisphere." +
+    		" Exchange students please note seasons are reverse in opposite hemisphere!<br>"+
+    		 "Latitude: " + position.coords.latitude + 
+   			 "<br>Longitude: " + position.coords.longitude; 
+    		}
+    		
+}
+</script>
+
+<script>
+var x = document.getElementById("demo2");
+
+function addmap(){
+
+if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+    
+    function showPosition(position) {
+
+     var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+
+
+}
+
+
+</script>
+
+</html>
